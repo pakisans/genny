@@ -16,12 +16,214 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+  html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+  }
+
+  header {
+    background: transparent;
+    scroll-margin-top: 5rem;
+    z-index: 999999999;
+  }
+  textarea {
+    resize: none;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  ::-webkit-scrollbar {
+    height: 4px;
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.5);
+    height: 2px;
+    background-clip: content-box;
+  }
+}
+
+@layer components {
+  @keyframes shake {
+    0% {
+      transform: translateX(0px);
+    }
+    25% {
+      transform: translateX(-5px);
+    }
+    50% {
+      transform: translateX(5px);
+    }
+    75% {
+      transform: translateX(-5px);
+    }
+    100% {
+      transform: translateX(0px);
+    }
+  }
+
+  .shake-animation {
+    animation: shake 0.5s linear;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  .page-transition-enter {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .page-transition-enter-active {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .page-transition-exit {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .page-transition-exit-active {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .no-fullscreen {
+    div {
+      div {
+        canvas {
+          width: 300px !important;
+          height: 500px !important;
+        }
+      }
+    }
+  }
+  .gaper {
+    background-image: url("/mask.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: calc(100vh - 40px);
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .border-fade {
+    @apply w-full h-2 bg-gradient-to-r from-transparent via-[#c09069] to-transparent;
+  }
+  .border-fade-b {
+    @apply w-full h-2 bg-gradient-to-b from-transparent via-[#c09069] to-transparent;
+  }
+  .header-gradient {
+    background: linear-gradient(
+        0deg,
+        rgba(254, 251, 65, 0.16) 0%,
+        rgba(254, 251, 65, 0.16) 100%
+      ),
+      lightgray 50% / cover no-repeat, rgba(255, 255, 255, 0.3);
+    background-blend-mode: normal, soft-light, normal;
+  }
+  .header-shadow {
+    box-shadow: 0px 40px 80px 0px rgba(0, 0, 0, 0.25),
+      4px 4px 26px 0px rgba(255, 255, 255, 0.05) inset,
+      0px 4px 2px 0px rgba(255, 255, 255, 0.05) inset,
+      0px -4px 2px 0px rgba(0, 0, 0, 0.15) inset;
+  }
+
+  .autocomplete-off:-webkit-autofill,
+  .autocomplete-off:-webkit-autofill:hover,
+  .autocomplete-off:-webkit-autofill:focus,
+  .autocomplete-off:-webkit-autofill:active {
+    border-top: unset;
+    border-left: unset;
+    border-right: unset;
+    transition: background-color 600000s 0s, color 600000s 0s, border 600000s 0s;
+    -webkit-text-fill-color: inherit !important;
+    outline: 0 none !important;
+  }
+
+  .border-fade-horizontal {
+    @apply relative border-t border-b border-transparent;
+  }
+
+  .outer-glow {
+    box-shadow: 0 0 15px 5px rgba(255, 215, 0, 0.4);
+  }
+
+  .border-fade-horizontal::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 1) 50%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    border-radius: inherit; /* Maintain the same border-radius as the container if any */
+  }
+
+  .container::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 20px;
+    background: #1d1e22;
+  }
+
+  .fullscreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 80vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+  }
+  .react-pdf__Page {
+    height: 500px !important;
+  }
+
+  .outer-glow {
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.6);
+    transition: transform 0.3s ease;
+  }
+
+  .outer-glow-white {
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.6);
+    transition: transform 0.3s ease;
+  }
+
+  .outer-glow:hover {
+    transform: scale(1.05);
+  }
+
+  .button-effect {
+    @apply focus:outline-none focus:ring-0 active:scale-95 transition duration-150 ease-in-out;
+  }
 }
