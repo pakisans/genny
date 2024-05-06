@@ -4,7 +4,7 @@ import { useState } from "react";
 const usePagination = () => {
   const searchParams = useSearchParams();
   const [rowsPerPage, setRowsPerPage] = useState(
-    Number(searchParams.get("per_page")) || 12
+    Number(searchParams.get("per_page")) || 50
   );
   const [currentPage, setCurrentPage] = useState(
     Number(searchParams.get("page")) || 1

@@ -73,7 +73,7 @@ const ProductsByCategoryPage = async (context) => {
   const { category } = params;
   const {
     page = 1,
-    per_page = 12,
+    per_page = 50,
     attribute,
     attribute_term,
     subCategory,
