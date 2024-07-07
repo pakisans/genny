@@ -47,11 +47,37 @@ export async function generateMetadata({ params }) {
       description:
         "Izaberite idealna vrata za vaš dom ili poslovni prostor. Naš asortiman uključuje raznovrsne stilove, od klasičnih do modernih, obezbeđujući sigurnost i stil.",
     },
+    131: {
+      title: "Đakuziji",
+      description:
+        "Opustite se i uživajte u luksuzu naših đakuzija. Sa modernim dizajnom i funkcionalnošću, naši đakuzii pružaju vrhunski doživljaj relaksacije.",
+    },
+    130: {
+      title: "Kade",
+      description:
+        "Pregledajte našu ponudu kada raznih stilova i veličina. Naše kade su dizajnirane za udobnost i estetiku, idealne za vašu kupatilo.",
+    },
+    125: {
+      title: "Pločice za Bazen",
+      description:
+        "Otkrijte našu selekciju pločica za bazen visokog kvaliteta. Naše pločice su otporne na vodu i klizanje, savršene za svaki bazen.",
+    },
+    129: {
+      title: "Tuš Kabine",
+      description:
+        "Pronađite savršenu tuš kabinu za vaše kupatilo. Naša ponuda uključuje moderni dizajn i funkcionalnost, prilagođene svakom prostoru.",
+    },
+    132: {
+      title: "Saune",
+      description:
+        "Otkrijte našu vrhunsku ponudu sauna za vaš dom. Naše saune pružaju idealan način za opuštanje i detoksikaciju, poboljšavajući vaše zdravlje i dobrobit. Odaberite između različitih stilova i veličina koje odgovaraju vašim potrebama.",
+    },
   };
 
   const category = params.category.toString();
   const categoryPromise = getCategoryIDBySlug(category);
   const [selectedCategory] = await Promise.all([categoryPromise]);
+
   const categoryInfo = kategorije[selectedCategory];
 
   if (!categoryInfo) {

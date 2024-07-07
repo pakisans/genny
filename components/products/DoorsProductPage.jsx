@@ -21,7 +21,15 @@ const DoorsProductPage = ({
     rowsPerPageOptions,
   } = usePagination();
   const [hideCategories, setHideCategories] = useState(false);
-  console.log(products);
+
+  const productsWithBrave = products.filter((product) =>
+    product.name.toLowerCase().includes("brava")
+  );
+  const productsWithoutBrave = products
+    .filter((product) => !product.name.toLowerCase().includes("brava"))
+    .sort((a, b) => a.name.localeCompare(b.name));
+  const sortedProducts = [...productsWithoutBrave, ...productsWithBrave];
+
   return (
     <>
       <div className="flex flex-col items-center sm:items-start sm:flex-row">
@@ -54,7 +62,7 @@ const DoorsProductPage = ({
           )}
         </div>
         <div className="sm:w-[80%] lg:w-[70%] 3xl:w-[80%] flex flex-col sm:flex-wrap sm:flex-row items-center gap-[4rem] sm:ml-auto mt-[4rem]">
-          {products.map((product, key) => {
+          {sortedProducts.map((product, key) => {
             return (
               <div
                 className="border border-gold"

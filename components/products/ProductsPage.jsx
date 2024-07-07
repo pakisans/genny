@@ -7,6 +7,8 @@ import SubCategories from "./SubCategories";
 import ProductOfSubCategory from "./ProductOfSubCategory";
 import DoorsProductPage from "./DoorsProductPage";
 import SanitaryProductPage from "./sanitary/SanitaryProductPage";
+import ShowerCabinProductPage from "./ShowerCabinProductPage";
+import SaunasProductPage from "./SaunasProductPage";
 
 const ProductsPage = ({
   categories,
@@ -49,7 +51,8 @@ const ProductsPage = ({
             subCategories={subCategories}
           />
         ) : null}
-        {selectedCategory?.slug !== KategorijaConst.VRATA ? (
+        {selectedCategory?.slug !== KategorijaConst.VRATA &&
+        selectedCategory?.slug !== KategorijaConst.TUS_KABINE ? (
           <div className="border-fade h-[.2rem] w-full mt-[2rem]"></div>
         ) : null}
         {subCategories?.length > 0 &&
@@ -78,6 +81,47 @@ const ProductsPage = ({
             subCategories={subCategories}
             selectedCategory={selectedCategory}
             selectedSubCategory={selectedSubCategory}
+          />
+        ) : null}
+        {selectedCategory?.slug == KategorijaConst.TUS_KABINE ? (
+          <ShowerCabinProductPage
+            categories={categories}
+            totalProducts={totalProducts}
+            products={products}
+            subCategories={subCategories}
+            selectedCategory={selectedCategory}
+            selectedSubCategory={selectedSubCategory}
+          />
+        ) : null}
+        {selectedCategory?.slug == KategorijaConst.KADE ? (
+          <ShowerCabinProductPage
+            categories={categories}
+            totalProducts={totalProducts}
+            products={products}
+            subCategories={subCategories}
+            selectedCategory={selectedCategory}
+            selectedSubCategory={selectedSubCategory}
+          />
+        ) : null}
+        {selectedCategory?.slug == KategorijaConst.DJAKUZIJI ? (
+          <SaunasProductPage
+            categories={categories}
+            totalProducts={totalProducts}
+            products={products}
+            subCategories={subCategories}
+            selectedCategory={selectedCategory}
+            selectedSubCategory={selectedSubCategory}
+          />
+        ) : null}
+        {selectedCategory?.slug == KategorijaConst.SAUNE ? (
+          <SaunasProductPage
+            categories={categories}
+            totalProducts={totalProducts}
+            products={products}
+            subCategories={subCategories}
+            selectedCategory={selectedCategory}
+            selectedSubCategory={selectedSubCategory}
+            productsRef={productsRef}
           />
         ) : null}
         {selectedCategory?.slug == KategorijaConst.SANITARIJE ? (

@@ -41,7 +41,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.5);
+    background: #c09069;
     color: rgba(0, 0, 0, 0.5);
     height: 2px;
     background-clip: content-box;

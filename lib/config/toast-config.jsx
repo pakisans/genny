@@ -1,6 +1,5 @@
 import { toast } from "react-hot-toast";
 import XIcon from "@/components/icons/XIcon";
-import ShopCartIcon from "@/components/icons/ShopCartIcon";
 import CheckmarkIcon from "@/components/icons/CheckmarkIcon";
 
 let lastToastTime = 0;

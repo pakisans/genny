@@ -11,11 +11,11 @@ const CartPage = () => {
   const { cartItems, removeFromCart } = useCart();
   const [artikalPodaci, setArtikalPodaci] = useState(
     cartItems.map((item) => ({
-      id: item.id,
+      id: item?.id,
       kolicina: "",
       kvadratura: "",
-      name: item.name,
-      category: item.categories[0].name,
+      name: item?.name,
+      category: item?.categories?.length > 0 ? item?.categories[0]?.name : [],
     }))
   );
   const [activeSlider, setActiveSlider] = useState(1);
@@ -87,7 +87,7 @@ const CartPage = () => {
                     Model:<strong>{item.name}</strong>
                   </p>
                   <p className="text-white text-[1.8rem] leading-[2.4rem] text-left">
-                    {item.categories[0].name}
+                    {item?.categories[0]?.name}
                   </p>
                 </div>
                 <div className="flex flex-col gap-5">

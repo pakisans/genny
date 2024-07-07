@@ -4,6 +4,19 @@ import { memo } from "react";
 
 const ProizvodiPage = ({ productsRef, categories }) => {
   const filteredCategories = categories.filter((category) => category.image);
+
+  const desiredOrder = [
+    "Pločice za bazen",
+    "Vrata",
+    "Keramika",
+    "Mermer",
+    "Granit",
+  ];
+
+  const sortedCategories = filteredCategories.sort((a, b) => {
+    return desiredOrder.indexOf(b.name) - desiredOrder.indexOf(a.name);
+  });
+
   return (
     <section ref={productsRef} id="proizvodi-page" className="h-full pb-[2rem]">
       <div className="border-fade h-[.2rem] w-full mx-auto mt-[3rem] 2xl:mt-[5rem]"></div>
@@ -11,8 +24,8 @@ const ProizvodiPage = ({ productsRef, categories }) => {
         PROIZVODI
       </h1>
       <div className="flex flex-col xl:flex-row items-center justify-center flex-wrap xl:gap-20">
-        {filteredCategories.map((category, key) => {
-          if (category.name == "Vrata") return;
+        {sortedCategories.map((category, key) => {
+          // if (category.name == "Vrata") return;
           return (
             <Link
               href={`/proizvodi/${category.slug}`}

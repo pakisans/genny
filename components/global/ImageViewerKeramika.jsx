@@ -11,6 +11,8 @@ const ImageViewerKeramika = ({
   attributes,
   description,
   product,
+  twStylesDescription,
+  noFull = false,
 }) => {
   const { addToCart } = useCart();
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -51,6 +53,7 @@ const ImageViewerKeramika = ({
 
   const handleAddToCart = (e) => {
     e.stopPropagation();
+    console.log(product);
     addToCart(product);
   };
 
@@ -81,7 +84,7 @@ const ImageViewerKeramika = ({
           className="flex flex-col items-center absolute bottom-0 left-0 w-full bg-black py-5 opacity-50  cursor-text"
         >
           <div
-            className="text-white text-[1.2rem]"
+            className={`text-white text-[1.2rem] ${twStylesDescription || ""}`}
             dangerouslySetInnerHTML={{ __html: description }}
           />
           <p className="text-white mx-auto my-auto text-[1.4rem] font-bold">
@@ -105,8 +108,9 @@ const ImageViewerKeramika = ({
             fill
             style={{
               objectFit: "contain",
-              maxHeight: "100vh",
-              maxWidth: "100vw",
+              maxHeight: noFull ? "50vh" : "100vh",
+              maxWidth: noFull ? "50vw" : "100vw",
+              margin: "auto",
             }}
             sizes="(min-width: 808px) 50vw, 100vw"
           />
