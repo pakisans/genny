@@ -75,6 +75,7 @@ const DoorsProductPage = ({
                   productModel={product.name}
                   attributes={product.attributes}
                   description={product.description}
+                  product={product}
                 />
               </div>
             );
