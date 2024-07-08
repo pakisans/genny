@@ -21,11 +21,30 @@ const ProductsPage = ({
 }) => {
   const productsRef = useRef();
 
+  const desiredOrder = [
+    "Pločice za bazen",
+    "Saune",
+    "Tuš kabine",
+    "Đakuziji",
+    "Kade",
+    "Rasveta",
+    "Vrata",
+    "Podovi",
+    "Sanitarije",
+    "Keramika",
+    "Granit",
+    "Mermer",
+  ];
+
+  const sortedCategories = categories.sort((a, b) => {
+    return desiredOrder.indexOf(b.name) - desiredOrder.indexOf(a.name);
+  });
+
   return (
     <>
       <div className="">
         <div className="flex flex-wrap gap-10 mt-[1rem] justify-center px-5 md:px-0">
-          {categories.map((category, key) => {
+          {sortedCategories.map((category, key) => {
             if (category.name == "Uncategorized") return;
 
             return (

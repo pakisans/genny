@@ -7,10 +7,17 @@ const ProizvodiPage = ({ productsRef, categories }) => {
 
   const desiredOrder = [
     "Pločice za bazen",
+    "Saune",
+    "Tuš kabine",
+    "Đakuziji",
+    "Kade",
+    "Rasveta",
     "Vrata",
+    "Podovi",
+    "Sanitarije",
     "Keramika",
-    "Mermer",
     "Granit",
+    "Mermer",
   ];
 
   const sortedCategories = filteredCategories.sort((a, b) => {
