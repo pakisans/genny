@@ -1,11 +1,11 @@
-import { Fragment, memo } from "react";
-import Pagination from "@/components/layout/Pagination";
-import usePagination from "@/components/hooks/usePagination";
-import Image from "next/image";
-import { stripHtml } from "@/lib/utils/dataUtils";
-import ImageCarouselWithThumb from "@/components/global/ImageCarouselWithThumb";
-import { useCart } from "@/components/context/ShopCartContext";
-import PlusIcon from "@/components/icons/PlusIcon";
+import { Fragment, memo } from 'react';
+import Pagination from '@/components/layout/Pagination';
+import usePagination from '@/components/hooks/usePagination';
+import Image from 'next/image';
+import { stripHtml } from '@/lib/utils/dataUtils';
+import ImageCarouselWithThumb from '@/components/global/ImageCarouselWithThumb';
+import { useCart } from '@/components/context/ShopCartContext';
+import PlusIcon from '@/components/icons/PlusIcon';
 
 const SanitaryProductPage = ({
   selectedSubCategory,
@@ -44,7 +44,7 @@ const SanitaryProductPage = ({
             alt={selectedSubCategory?.image.alt}
             fill
             style={{
-              objectFit: "cover",
+              objectFit: 'cover',
             }}
             sizes="(min-width: 808px) 50vw, 100vw"
           />
@@ -63,9 +63,6 @@ const SanitaryProductPage = ({
                       <ImageCarouselWithThumb images={product.images} />
 
                       <div className="flex flex-col gap-4 px-10 md:px-0 max-w-[40rem] md:max-w-none">
-                        <p className="text-white text-[2rem] md:text-[2.6rem] leading-[3.2rem]">
-                          Model:{product.name}
-                        </p>
                         <p className="text-white text-[2rem] md:text-[2.6rem] leading-[3.2rem]">
                           {stripHtml(product.description)}
                         </p>

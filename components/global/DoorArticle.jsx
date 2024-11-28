@@ -1,7 +1,7 @@
-import Image from "next/image";
-import { memo, useCallback, useEffect, useState } from "react";
-import { stripHtml } from "@/lib/utils/dataUtils";
-import PlusIcon from "../icons/PlusIcon";
+import Image from 'next/image';
+import { memo, useCallback, useEffect, useState } from 'react';
+import { stripHtml } from '@/lib/utils/dataUtils';
+import PlusIcon from '../icons/PlusIcon';
 
 const DoorArticle = ({ src, alt, twStyles, productModel, description }) => {
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -14,10 +14,10 @@ const DoorArticle = ({ src, alt, twStyles, productModel, description }) => {
   }, [src]);
 
   useEffect(() => {
-    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
 
     return () => {
-      document.removeEventListener("fullscreenchange", handleFullscreenChange);
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
     };
   }, [handleFullscreenChange]);
 
@@ -25,7 +25,7 @@ const DoorArticle = ({ src, alt, twStyles, productModel, description }) => {
     const element = document.getElementById(src);
     if (element && !document.fullscreenElement) {
       element.requestFullscreen().catch((e) => {
-        console.error("Error attempting to enable full-screen mode:", e);
+        console.error('Error attempting to enable full-screen mode:', e);
       });
     }
   };
@@ -33,7 +33,7 @@ const DoorArticle = ({ src, alt, twStyles, productModel, description }) => {
   const closeFullscreen = () => {
     if (document.fullscreenElement) {
       document.exitFullscreen().catch((e) => {
-        console.error("Error attempting to exit full-screen mode:", e);
+        console.error('Error attempting to exit full-screen mode:', e);
       });
     }
   };
@@ -50,7 +50,7 @@ const DoorArticle = ({ src, alt, twStyles, productModel, description }) => {
           fill
           sizes="(min-width: 808px) 50vw, 100vw"
           style={{
-            objectFit: "contain",
+            objectFit: 'contain',
           }}
         />
         <button
@@ -66,9 +66,6 @@ const DoorArticle = ({ src, alt, twStyles, productModel, description }) => {
           onClick={(e) => e.stopPropagation()}
           className="flex flex-col items-center absolute bottom-0 left-0 w-full bg-black py-5 opacity-50  cursor-text"
         >
-          <p className="text-white mx-auto my-auto text-[1.4rem] font-bold">
-            {productModel}
-          </p>
           {description ? (
             <p className="text-white font-bold px-[2rem] xl:text-[1rem]">
               {stripHtml(description)}
@@ -87,8 +84,8 @@ const DoorArticle = ({ src, alt, twStyles, productModel, description }) => {
             fill
             className="max-[80%] max-h-[80%] xl:max-w-[50%] xl:max-h-[50%]"
             style={{
-              margin: "auto",
-              objectFit: "contain",
+              margin: 'auto',
+              objectFit: 'contain',
             }}
             sizes="(min-width: 808px) 50vw, 100vw"
           />
