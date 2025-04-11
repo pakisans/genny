@@ -1,8 +1,8 @@
-import KontaktForm from "../forms/KontaktForm";
-import FacebookIcon from "../icons/FacebookIcon";
-import InstagramIcon from "../icons/InstagramIcon";
-import MailIcon from "../icons/MailIcon";
-import PhoneIcon from "../icons/PhoneIcon";
+import KontaktForm from '../forms/KontaktForm';
+import FacebookIcon from '../icons/FacebookIcon';
+import InstagramIcon from '../icons/InstagramIcon';
+import MailIcon from '../icons/MailIcon';
+import PhoneIcon from '../icons/PhoneIcon';
 
 const Footer = () => {
   return (
@@ -63,7 +63,7 @@ const Footer = () => {
               className="group text-white mt-[1rem] text-[1.4rem] flex items-center gap-3"
               href="tel:+381628459592"
             >
-              <PhoneIcon width={16} height={16} color={"#deba8f"} />{" "}
+              <PhoneIcon width={16} height={16} color={'#deba8f'} />{' '}
               <span className="group-hover:text-browno">+381628459592</span>
             </a>
             <div className="">
@@ -93,9 +93,19 @@ const Footer = () => {
           </div>
         </div>
         <div className="w-fit mx-auto xl:ml-auto xl:my-auto">
-          <p className="text-white text-[1.8rem] w-fit text-right xl:my-auto ml-auto max-w-[20rem] opacity-70">
-            Novi prostor, nove mogućnosti. Otkrijte uskoro na našoj novoj
-            lokaciji!
+          <p className="text-white text-[1.8rem] w-fit text-center lg:text-right ml-auto max-w-[30rem] opacity-70">
+            Novi prostor, nove mogućnosti. Posetite nas na našoj lokaciji!
+          </p>
+          <div className="border-fade m-[10px] h-[.2rem] w-full mx-auto"></div>
+          <p className="text-white text-[1.6rem] font-semibold text-right ml-auto">
+            Adresa:{' '}
+            <a
+              target="_blank"
+              href="https://www.google.com/maps?q=Filipa+Vi%C5%A1nji%C4%87a+10,+Novi+Sad"
+              className="text-browno cursor-pointer"
+            >
+              Filipa Višnjića 10, Novi Sad
+            </a>
           </p>
         </div>
       </div>
